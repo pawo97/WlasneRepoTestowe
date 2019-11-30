@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<p>List Of Employees:</p>
+
+<table class="table table-bordered table-striped">	
+		<tbody>
+			<tr th:each="tempEmployee : ${employees}">
+				<td th:text="${tempEmployee.firstName}" />	
+				<td th:text="${tempEmployee.lastName}" />	
+				<td th:text="${tempEmployee.number}" />	
+				<td>
+					<!-- Add "update" button/link -->
+					<a th:href="@{/showFormForUpdate(employeeId=${tempEmployee.id})}"
+					   class="btn btn-info btn-sm">
+						Generate VCard
+					</a>
+				</td>
+			</tr>
+		</tbody>		
+	</table>
+<br>
+</body>
+</html>
